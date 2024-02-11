@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+
+    <div class="edit-delete edit-photo">
+        <h2>Edit Pet</h2>
+        <!-- Start Edit Pet From -->
+        <form action="{% url 'edit pet' username=username pet_slug=pet.slug %}" method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <button class="edit-btn" type="submit">Edit</button>
+        </form>
+        <!-- End Edit Pet Form -->
+        <br>
+    <h3>Current image</h3>
+        <img width="220" src="{{ pet.pet_photo }}" alt="This is image of {{ pet.name}}">
+
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+
+<div class="container">
+        <div class="col-9">
+
+            <!-- Start Searchbar Form -->
+            <form class="searchbar" action="{% url 'index' %}" method="get">
+                <input type="text" name="pet_name_pattern" placeholder="Search by pet name..." value="{{ pet_name_pattern }}">
+                
+                <button>
+                    <img src="/staticfiles/images/search.png" height="18" alt="img2">
+                </button>
+            </form>
+            
+            {% include 'partials/pet-photos-list.html' with photo_list=pet_photos %}
+
+        </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% load static %}
+
+{% if photo_list %}
+{% for photo in photo_list %}
+
+    {% include 'partials/layout/pet_list_card.html' with photo=photo %}
+    
+{% endfor %}
+
+{% else %}
+
+<img class="no-posts" src="{% static 'images/no_posts.png' %}" alt="no posts image">
+
+{% endif %}

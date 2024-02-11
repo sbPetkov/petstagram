@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+
+    <div class="edit-delete edit-photo">
+        <h2>Add pet</h2>
+
+        <!-- Start Add Pet Form -->
+        <form action="{% url 'add pet' %}" method="post">
+            {{ pet.as_p }}
+            
+            {% csrf_token %}
+        
+        <button class="add-btn" type="submit">Add Pet</button>
+        </form>
+
+    </div>
+{% endblock %}

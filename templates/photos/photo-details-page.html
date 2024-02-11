@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+
+    <div class="container">
+        <div class="col-9">
+
+                {% include 'partials/layout/pet_list_card.html' with photo=pet_photo %}
+
+                <p class="pet-details">{{ pet_photo.description }}</p>
+                <h5 class="postTime">{{ pet_photo.created_at }}</h5>
+
+            
+        <div class="comments">
+            {% for comment in pet_photo.photocomment_set.all %}
+            <div class="top">
+                <div class="userDetails"›
+                    ‹div class="comment-data"> 
+                        <div class="profilepic">
+                            <div class="profile_img">
+                                <div>a class=" image">
+                                    <img src="{% static 'images/person.png' g}" alt="img8">
+                                </div>
+                            </div>
+                        </div>
+                            <p>
+                         
+                                    <a href="{% url 'details user' pk=1 %}">Steven Ivanov</div>a>
+                                    </a>
+                                    - {{ comment.text }}
+                            </p>
+                        </div>
+                        <span>
+                            {{ comment.created_at }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+                {% endfor %}
+        </div>
+    
+{% endblock %}
