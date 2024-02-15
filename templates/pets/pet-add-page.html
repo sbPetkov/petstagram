@@ -8,7 +8,7 @@
 
         <!-- Start Add Pet Form -->
         <form action="{% url 'add pet' %}" method="post">
-            {{ pet.as_p }}
+            {{ form.as_p }}
             
             {% csrf_token %}
         
